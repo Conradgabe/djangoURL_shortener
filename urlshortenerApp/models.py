@@ -8,7 +8,7 @@ class LinkURL(models.Model):
     date_created = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.shorten_url}-{self.id}"
+        return f"{self.shorten_url}-{self.id}-{self.original_url}"
 
     def save(self, *args, **kwargs):
         if self.shorten_url == "":

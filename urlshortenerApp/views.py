@@ -26,6 +26,7 @@ def create(request):
 
 def redirect_url(request, url):
     current_obj = LinkURL.objects.filter(shorten_url=url)
-    return render(request, 'index.html', {
-        'obj': current_obj
-    })
+    return redirect('https://'+ current_obj.values().get()['original_url'])
+    # return render(request, 'index.html', {
+    #     'obj': current_obj
+    # })
