@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="original">
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if obj.original_url %}
+    <h3>Original Url: {{ obj.original_url }}</h3>
+    <h4>Short Url: localhost/{{ obj.shorten_url }}</h4>
+    <a href="https://{{obj.original_url }}"><button>Go to Website</button></a>
+    {% else %}
+    
+    {% endif %}
+{% endblock %}
